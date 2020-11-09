@@ -31,18 +31,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// let email;
+// let nickname;
+// let loginProvider;
+// let photo;
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 function Profile({ history }) {
+  const [nickname, setNickname] = useState();
+  const [email, setEmail] = useState();
+  const [loginProvider, setLoginProvider] = useState();
+  const [photo, setPhoto] = useState();
   const { handleSubmit } = useForm();
   const classes = useStyles();
   let query = useQuery();
-  const email = query.get("email");
-  const nickname = query.get("nickname");
-  const loginProvider = query.get("loginProvider");
-  const photo = query.get("photo");
+  if (!nickname) {
+    setEmail(query.get("email"));
+    setNickname(query.get("nickname"));
+    setLoginProvider(query.get("loginProvider"));
+    setPhoto(query.get("photo"));
+  }
+
+  /**
+   * Gigya Edit Profile Screen Set
+   */
+  const updateProfileScreenSet = () => {
+    gigyaWebSDK.accounts.showScreenSet({
+      screenSet: "NewRaas4nov15-ProfileUpdate",
+      onAfterSubmit: (response) => {
+        setEmail(response.profile.email);
+        setNickname(response.profile.firstName);
+        setPhoto(response.profile.photoURL);
+      },
+    });
+  };
 
   /**
    * Gigya logout call
@@ -87,6 +112,14 @@ function Profile({ history }) {
           and logged in using the provider:
           <span style={{ fontWeight: "bold" }}> {loginProvider}</span>.
         </p>
+        <Button
+          variant="contained"
+          color="default"
+          className={classes.submit}
+          onClick={updateProfileScreenSet}
+        >
+          Edit Profile
+        </Button>
         <Button
           type="submit"
           variant="contained"

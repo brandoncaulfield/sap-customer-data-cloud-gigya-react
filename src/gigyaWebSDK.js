@@ -18,7 +18,7 @@ export const facebookGigyaLogin = () => {
  * @param {Object} e - a synthetic event
  */
 export const twitterGigyaLogin = () => {
-  console.log("Twitter");
+  console.log(`Twitter`);
   const params = {
     //   callback: onLogin(),
     provider: "Twitter",

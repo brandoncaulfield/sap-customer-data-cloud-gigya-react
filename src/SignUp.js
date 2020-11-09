@@ -54,7 +54,6 @@ export default function SignUp({ history }) {
         const loginProvider = response.operation;
         const email = response.user.email;
         const photo = response.user.photoURL;
-        debugger;
         if (response.errorCode === 0) {
           alert(
             `Successful Registration! Welcome home, ${response.user.firstName}`

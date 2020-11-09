@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(2, 0, 2),
   },
 }));
 
@@ -74,7 +74,7 @@ export default function SignIn({ history }) {
   };
 
   const loginCallback = (response) => {
-    const nickname = response.user.nickname;
+    const firstName = response.user.firstName;
     const loginProviderSite = response.loginProvider;
     const loginProviderSocial = response.requestParams.provider;
     const email = response.user.email;
@@ -88,7 +88,7 @@ export default function SignIn({ history }) {
         ? (loginProvider = loginProviderSite)
         : (loginProvider = loginProviderSocial);
       history.push(
-        `/Profile?email=${email}&nickname=${nickname}&loginProvider=${loginProvider}&photo=${photo}`
+        `/Profile?email=${email}&nickname=${firstName}&loginProvider=${loginProvider}&photo=${photo}`
       );
     } else {
       console.error(`${response.errorMessage}`);
