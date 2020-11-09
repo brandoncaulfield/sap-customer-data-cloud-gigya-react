@@ -12,6 +12,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { useForm } from "react-hook-form";
+import gigyaWebSDK from "./gigyaWebSDK";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,8 +35,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp({ history }) {
   const classes = useStyles();
+  const { register, handleSubmit, errors } = useForm();
+  let regToken;
+  let dataTest;
+  const handleOnInitRegister = (response) => {
+    console.log(response);
+    regToken = response.regToken;
+    // Step 2 - Actually register the user with Gigya
+    gigyaWebSDK.accounts.register({
+      email: dataTest.email,
+      password: dataTest.password,
+      regToken: regToken,
+      finalizeRegistration: true,
+      callback: (response) => {
+        const nickname = response.user.nickname;
+        const loginProvider = response.operation;
+        const email = response.user.email;
+        const photo = response.user.photoURL;
+        debugger;
+        if (response.errorCode === 0) {
+          alert(
+            `Successful Registration! Welcome home, ${response.user.firstName}`
+          );
+          history.push(
+            `/Profile?email=${email}&nickname=${nickname}&loginProvider=${loginProvider}&photo=${photo}`
+          );
+        } else {
+          alert(
+            `Error during registration: ${response.errorMessage}, ${response.errorDetails}`
+          );
+        }
+      },
+    });
+  };
+
+  const handleFormSubmit = (data) => {
+    dataTest = data;
+    // Step 1 - Register Process
+    gigyaWebSDK.accounts.initRegistration({
+      callback: handleOnInitRegister,
+    });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -46,14 +89,17 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form
+          className={classes.form}
+          noValidate
+          onSubmit={handleSubmit(handleFormSubmit)}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
-                required
                 fullWidth
                 id="firstName"
                 label="First Name"
@@ -63,7 +109,6 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 id="lastName"
                 label="Last Name"
@@ -74,25 +119,27 @@ export default function SignUp() {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 id="email"
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                inputRef={register({ required: true })}
               />
+              {errors.email && <span>Please enter your email</span>}
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 name="password"
                 label="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                inputRef={register({ required: true })}
               />
+              {errors.password && <span>Please enter a password</span>}
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
