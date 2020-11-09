@@ -1,6 +1,6 @@
 ## React App Showcasing a Simple SAP CDC (Gigya) Login/ Register Flow
 
-This app aims to show case a simple SAP CDC (Gigya) login flow. It runs through the following scenarios:
+This app aims to showcase a simple SAP CDC (Gigya) login flow. It runs through the following scenarios:
 
 - Simple Login
 - Login Using a Social Media Account
