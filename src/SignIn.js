@@ -81,7 +81,8 @@ export default function SignIn({ history }) {
     const photo = response.user.photoURL;
     if (response.errorCode === 0) {
       // we need to do this because we get a different response depending
-      // on whether we login using an account or social button
+      // on whether we login using an account or social button. If you know
+      // a better way to do this please feel free to add a pull request :)
       let loginProvider;
       loginProviderSite
         ? (loginProvider = loginProviderSite)
