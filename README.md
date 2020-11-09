@@ -1,4 +1,4 @@
-## React App Showcasing a Simple SAP CDC (Gigya) Login Flow
+## React App Showcasing a Simple SAP CDC (Gigya) Login/ Register Flow
 
 
 ### To Run The App
