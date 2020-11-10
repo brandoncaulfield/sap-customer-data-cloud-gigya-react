@@ -1,4 +1,4 @@
-# React App Showcasing a Simple SAP CDC (Gigya) Login/ Register Flow
+# Showcasing a Simple SAP CDC (Gigya) Login/ Register Flow in a React App
 
 This app aims to showcase a simple SAP CDC (**Gigya**) login flow using the **WebSDK**. It highlights the following scenarios:
 
