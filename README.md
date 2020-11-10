@@ -20,10 +20,22 @@ This app aims to showcase a simple SAP CDC (**Gigya**) login flow using the **We
 
 ## To Run The App
 
-```console
-> cd /sap-customer-data-cloud-gigya-react
+This app was run in VS Code using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. You can run it on any local server but it's important to note that for the Gigya SDK to work correctly you must run the app from a url that includes 'localhost'. If you run it from a url like this '127.0.0.1' it will not work correctly. For more information see the [Gigya API+SDK documentation](https://developers.gigya.com/display/GD/APIs+and+SDKs)
 
-> npm start
+**Dependencies**
+
+```Console
+npm i @material-ui/core @material-ui/icons react-hook-form react-router-dom
+```
+
+After cloning the repository, navigate to the folder and run the app as per below:
+
+```console
+git clone https://github.com/brandoncaulfield/sap-customer-data-cloud-gigya-react
+
+cd sap-customer-data-cloud-gigya-react
+
+npm start
 ```
 
 ## Documentation
@@ -36,3 +48,5 @@ Gigya have some fantastic documentation [here](https://developers.gigya.com/) fo
 - [accounts.logout](https://developers.gigya.com/display/GD/accounts.logout+JS)
 - [accounts.showScreenSet](https://developers.gigya.com/display/GD/accounts.showScreenSet+JS) (For the 'Edit Profile' screen set)
 - [socialize.login](https://developers.gigya.com/display/GD/socialize.login+JS) (Different params used for each social media provider)
+
+## Dependencies
