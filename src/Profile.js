@@ -31,16 +31,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// let email;
-// let nickname;
-// let loginProvider;
-// let photo;
-
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 function Profile({ history }) {
+  // Trying to make use of the new React state hooks but it's been
+  // a bit 'hacked' together. If you know of a better way to do
+  // this please feel free to add a pull request :)
   const [nickname, setNickname] = useState();
   const [email, setEmail] = useState();
   const [loginProvider, setLoginProvider] = useState();
@@ -48,6 +46,9 @@ function Profile({ history }) {
   const { handleSubmit } = useForm();
   const classes = useStyles();
   let query = useQuery();
+  // without the 'if' statement here we get an infinite state loop.
+  // I'm sure there's a better way to do this... State is affected
+  // here, and also from the response after 'Edit Profile' is done.
   if (!nickname) {
     setEmail(query.get("email"));
     setNickname(query.get("nickname"));
