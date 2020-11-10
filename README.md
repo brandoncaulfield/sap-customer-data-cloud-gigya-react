@@ -22,20 +22,18 @@ This app aims to showcase a simple SAP CDC (**Gigya**) login flow using the **We
 
 This app was run in VS Code using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. You can run it on any local server but it's important to note that for the Gigya SDK to work correctly you must run the app from a url that includes 'localhost'. If you run it from a url like this '127.0.0.1' it will not work correctly. For more information see the [Gigya API+SDK documentation](https://developers.gigya.com/display/GD/APIs+and+SDKs)
 
-**Dependencies**
+After cloning the repository, navigate to the folder, check/ install the dependencies, and run the app as per below:
 
-```Console
-npm i @material-ui/core @material-ui/icons react-hook-form react-router-dom
-```
-
-After cloning the repository, navigate to the folder and run the app as per below:
+### **Steps to run the app**:
 
 ```console
-git clone https://github.com/brandoncaulfield/sap-customer-data-cloud-gigya-react
+> git clone https://github.com/brandoncaulfield/sap-customer-data-cloud-gigya-react
 
-cd sap-customer-data-cloud-gigya-react
+> cd sap-customer-data-cloud-gigya-react
 
-npm start
+> npm i @material-ui/core @material-ui/icons @testing-library/jest-dom @testing-library/react @testing-library/user-event react-hook-form react react-dom react-hook-form react-router-dom react-scripts web-vitals
+
+> npm start
 ```
 
 ## Documentation
