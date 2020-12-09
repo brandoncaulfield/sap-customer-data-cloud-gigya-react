@@ -20,7 +20,7 @@ This app aims to showcase a simple **SAP Customer Data Cloud** (**Gigya**) login
 
 ## To Run The App
 
-You can run this app on any local server but it's important to note that for the Gigya SDK to work correctly you must run the app from a url that includes **'localhost'**. If you run it from a url like this '127.0.0.1' it will not work correctly. For more information see the [Gigya API+SDK documentation](https://developers.gigya.com/display/GD/APIs+and+SDKs)
+You can run this app on any local server but it's important to note that for the **SAP Customer Data Cloud (Gigya)** **WebSDK** to work correctly you must run the app from a url that includes **'localhost'**. If you run it from a url like this '127.0.0.1' it will not work correctly. For more information see the [Gigya API+SDK documentation](https://developers.gigya.com/display/GD/APIs+and+SDKs)
 
 After cloning the repository, navigate to the folder, check/ install the dependencies, and run the app as per below:
 
