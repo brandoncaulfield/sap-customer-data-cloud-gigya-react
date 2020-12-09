@@ -31,7 +31,7 @@ After cloning the repository, navigate to the folder, check/ install the depende
 
 > cd sap-customer-data-cloud-gigya-react
 
-> npm i @material-ui/core @material-ui/icons @testing-library/jest-dom @testing-library/react @testing-library/user-event react-hook-form react react-dom react-hook-form react-router-dom react-scripts web-vitals
+> npm i
 
 > npm start
 ```
