@@ -1,4 +1,4 @@
-# Showcasing a Simple SAP CDC (Gigya) Login/ Register Flow in a React App
+# Showcasing a Simple SAP Customer Data Cloud (Gigya) Login/ Register Flow in a React App
 
 This app aims to showcase a simple **SAP Customer Data Cloud** (**Gigya**) login flow using the **WebSDK** inside a React application. It highlights the following scenarios:
 
