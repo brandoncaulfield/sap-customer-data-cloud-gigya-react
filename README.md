@@ -46,3 +46,5 @@ Gigya have some fantastic documentation [here](https://developers.gigya.com/) fo
 - [accounts.logout](https://developers.gigya.com/display/GD/accounts.logout+JS)
 - [accounts.showScreenSet](https://developers.gigya.com/display/GD/accounts.showScreenSet+JS) (For the 'Edit Profile' screen set)
 - [socialize.login](https://developers.gigya.com/display/GD/socialize.login+JS) (Different params used for each social media provider)
+- [socialize.addEventHandlers](https://developers.gigya.com/display/GD/socialize.addEventHandlers+JS)
+- [accounts.addEventHandlers](https://developers.gigya.com/display/GD/accounts.addEventHandlers+JS)
